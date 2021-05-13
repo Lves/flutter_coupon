@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'Widgets/LLGridView.dart';
+import 'Widgets/GoodsGridView.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('首页'),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          LLGridView(),
+          GoodsGridView()
+        ],
+      )
     );
   }
 }
