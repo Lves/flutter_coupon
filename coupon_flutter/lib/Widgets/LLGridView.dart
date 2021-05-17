@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import '../Models/MenuItem.dart';
+import '../Models/TBKBanner.dart';
 
 // 网格view
 
-class LLGridView extends StatefulWidget {
-  @override
-  _LLGridViewState createState() => _LLGridViewState();
-}
+class LLGridView extends StatelessWidget {
+  final List<TBKBanner> items;
 
-class _LLGridViewState extends State<LLGridView> {
+  LLGridView({this.items});
 
-  List<MenuItem> items = [
-    MenuItem(title: "拼多多", imageUrl: "https://coupon.lvesli.com/pdd.png"),
-    MenuItem(title: "母婴精选", imageUrl: "https://img.alicdn.com/imgextra/i1/2053469401/TB2G1wjoBnTBKNjSZPfXXbf1XXa-2053469401.png"),
-    MenuItem(title: "20元封顶", imageUrl: "https://img.alicdn.com/imgextra/i2/2053469401/TB2Z1Qso7UmBKNjSZFOXXab2XXa-2053469401.png"),
-    MenuItem(title: "饿了么红包", imageUrl: "https://coupon.lvesli.com/eleme.png")
-  ];
+  // List<TBKBanner> items = [
+  //   TBKBanner(name: "拼多多", iconUrl: "https://coupon.lvesli.com/pdd.png"),
+  //   TBKBanner(name: "母婴精选", iconUrl: "https://img.alicdn.com/imgextra/i1/2053469401/TB2G1wjoBnTBKNjSZPfXXbf1XXa-2053469401.png"),
+  //   TBKBanner(name: "20元封顶", iconUrl: "https://img.alicdn.com/imgextra/i2/2053469401/TB2Z1Qso7UmBKNjSZFOXXab2XXa-2053469401.png"),
+  //   TBKBanner(name: "饿了么红包", iconUrl: "https://coupon.lvesli.com/eleme.png")
+  // ];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -28,8 +26,8 @@ class _LLGridViewState extends State<LLGridView> {
         itemCount: items.length,
         itemBuilder: (context, index) {
           return GridViewCell(
-              title: items[index].title,
-              imageUrl: items[index].imageUrl
+              title: items[index].name,
+              imageUrl: items[index].iconUrl
           );
         });
   }
