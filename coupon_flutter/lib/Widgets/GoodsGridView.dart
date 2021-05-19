@@ -3,18 +3,8 @@ import '../Models/Goods.dart';
 import 'GoodsCard.dart';
 
 class GoodsGridView extends StatelessWidget {
-  final List<Goods> list = [
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-    Goods("手机便宜了，你买不买", "https://img.alicdn.com/i2/1705248555/O1CN01XnWne72D4EzvKrUF3_!!0-item_pic.jpg", 40, 30, 100002),
-
-  ];
+  final List<Goods> list;
+  GoodsGridView({this.list});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +13,7 @@ class GoodsGridView extends StatelessWidget {
         physics: new NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
-          childAspectRatio: 0.7,
+          childAspectRatio: 0.65,
         ),
         itemCount: list.length,
         itemBuilder: (context, index) {
