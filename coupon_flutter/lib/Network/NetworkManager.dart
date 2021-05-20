@@ -14,12 +14,12 @@ class NetworkManger {
     final dio = Dio();
     dio.options = BaseOptions(baseUrl: "https://lvesli.com");
 
-    (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
-      client.findProxy = (Uri) {
-        // 用1个开关设置是否开启代理
-        return 'PROXY 192.168.220.97:8888';
-      };
-    };
+    // (dio.httpClientAdapter as DefaultHttpClientAdapter).onHttpClientCreate = (client) {
+    //   client.findProxy = (Uri) {
+    //     // 用1个开关设置是否开启代理
+    //     return 'PROXY 192.168.220.97:8888';
+    //   };
+    // };
     return dio;
   }
 

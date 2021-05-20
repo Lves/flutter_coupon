@@ -10,7 +10,8 @@ class Goods {
   final String item_url; //商品地址
   final String reserve_price; //商品一口价格
   final String zk_final_price; //商品折扣价格
-  final String coupon_start_fee; //优惠券价格
+  final String coupon_start_fee; //满减价格
+  final dynamic coupon_amount; //优惠券价格
   final int num_iid; //商品ID
   final int item_id; //商品ID, num_id为空的时候用
   final int seller_id; //卖家id
@@ -60,6 +61,7 @@ class Goods {
       this.reserve_price,
       this.zk_final_price,
       this.coupon_start_fee,
+      this.coupon_amount,
       this.num_iid,
       this.item_id,
       this.seller_id,

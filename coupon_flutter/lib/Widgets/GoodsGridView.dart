@@ -13,6 +13,8 @@ class GoodsGridView extends StatelessWidget {
         physics: new NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
+          crossAxisSpacing: 3,
+          mainAxisSpacing: 5,
           childAspectRatio: 0.65,
         ),
         itemCount: list.length,

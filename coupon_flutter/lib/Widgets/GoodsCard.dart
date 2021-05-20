@@ -8,17 +8,58 @@ class GoodsCard extends StatelessWidget {
   final Goods goods;
   @override
   Widget build(BuildContext context) {
-    final price = double.parse(goods.zk_final_price) - double.parse(goods.coupon_start_fee ?? "0");
+    final couponAmount =
+        (goods.coupon_amount as int) ?? double.parse(goods.coupon_amount);
+    final price = double.parse(goods.zk_final_price) - couponAmount;
     return Column(
       children: [
         Image.network(goods.pict_url.appendHttps()),
-        Text(goods.title),
-        Row(children: [
-          Text("原价 ${goods.zk_final_price}"),
-          Text("月售 ${goods.volume}")
-        ]),
-        //TODO：这里需要改
-        Text("券后 ￥${price}")
+        Container(
+          margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+          child: Text(
+            goods.title,
+            maxLines: 2,
+            style: TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+              color: Colors.black,
+            ),
+          ),
+        ),
+        Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+            child: DefaultTextStyle(
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.grey,
+              ),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("原价 ${goods.zk_final_price}"),
+                    Text("月售 ${goods.volume}")
+                  ]),
+            )),
+        Container(
+            margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 5),
+            child: DefaultTextStyle(
+              style: TextStyle(color: Colors.deepOrange, fontSize: 14),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("券后 ￥${price.toStringAsFixed(1)}"),
+                  Visibility(
+                      visible: couponAmount != 0,
+                      child: Container(
+                        padding: const EdgeInsets.all(3),
+                        decoration: BoxDecoration(
+                            border: new Border.all(
+                                width: 1, color: Colors.deepOrange)),
+                        child: Text("${couponAmount} 元券"),
+                      ))
+                ],
+              ),
+            ))
       ],
     );
   }
