@@ -29,9 +29,24 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>io.flutter.embedded_views_preview</key>
+    <string>YES</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>请允许app访问你的位置，已提供更好的服务</string>
+    <key>NSLocationUsageDescription</key>
+    <string>请允许app访问你的位置，已提供更好的服务</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>请允许app访问你的位置，已提供更好的服务</string>
+    <key>UIBackgroundModes</key>
+    <array>
+        <string>remote-notification</string>
+    </array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

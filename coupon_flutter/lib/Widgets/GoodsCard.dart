@@ -10,14 +10,18 @@ class GoodsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final couponAmount =
         (goods.coupon_amount as int) ?? double.parse(goods.coupon_amount);
-    final price = double.parse(goods.zk_final_price) - couponAmount;
+    if (goods.zk_final_price == null) {
+      print("goods.reserve_price:${goods.reserve_price}");
+    }
+    final oPrice = goods.zk_final_price != null ? double.parse(goods.zk_final_price) : 0;
+    final price =  oPrice - couponAmount;
     return Column(
       children: [
         Image.network(goods.pict_url.appendHttps()),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 2, horizontal: 5),
           child: Text(
-            goods.title,
+            goods.title ?? "",
             maxLines: 2,
             style: TextStyle(
               fontSize: 14,
@@ -36,8 +40,8 @@ class GoodsCard extends StatelessWidget {
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("原价 ${goods.zk_final_price}"),
-                    Text("月售 ${goods.volume}")
+                    Text("原价 ${goods.zk_final_price ?? 0}"),
+                    Text("月售 ${goods.volume ?? 0}")
                   ]),
             )),
         Container(

@@ -1,19 +1,12 @@
 import 'package:flutter/material.dart';
 import '../Models/TBKBanner.dart';
-
+import '../Pages/WebViewPage.dart';
 // 网格view
 
 class LLGridView extends StatelessWidget {
   final List<TBKBanner> items;
 
   LLGridView({this.items});
-
-  // List<TBKBanner> items = [
-  //   TBKBanner(name: "拼多多", iconUrl: "https://coupon.lvesli.com/pdd.png"),
-  //   TBKBanner(name: "母婴精选", iconUrl: "https://img.alicdn.com/imgextra/i1/2053469401/TB2G1wjoBnTBKNjSZPfXXbf1XXa-2053469401.png"),
-  //   TBKBanner(name: "20元封顶", iconUrl: "https://img.alicdn.com/imgextra/i2/2053469401/TB2Z1Qso7UmBKNjSZFOXXab2XXa-2053469401.png"),
-  //   TBKBanner(name: "饿了么红包", iconUrl: "https://coupon.lvesli.com/eleme.png")
-  // ];
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
@@ -25,12 +18,23 @@ class LLGridView extends StatelessWidget {
         ),
         itemCount: items.length,
         itemBuilder: (context, index) {
-          return GridViewCell(
-              title: items[index].name,
-              imageUrl: items[index].iconUrl
+          return GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (_) {
+                //TODO: 处理原生的列表
+                //TODO: 添加定位权限
+                print("Url:${items[index].address}");
+                return WebViewPage(title: "${items[index].name ?? ""}", url: items[index].address ?? "");
+              }));
+            },
+            child: GridViewCell(
+                title: items[index].name,
+                imageUrl: items[index].iconUrl
+            ),
           );
         });
   }
+
 }
 
 class GridViewCell extends StatelessWidget {
